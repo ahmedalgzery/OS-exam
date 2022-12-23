@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: wep-app
+
+spec: 
+  selector: 
+    matchLabels:
+      app: web
+    
+  replicas: 3
+  template:
+    metadata:
+      name: exam-pod
+      labels:
+        app: web
+    spec:
+      containers:
+      - image: ahmedalgzery/mywebimage
+        name: my-app
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 80
+      
+            
+        
+
